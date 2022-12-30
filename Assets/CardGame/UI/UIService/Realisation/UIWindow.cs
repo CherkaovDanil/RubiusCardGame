@@ -9,8 +9,5 @@ namespace CardGame.UI
         public EventHandler HideEvent { get; set; }
         public abstract void Show();
         public abstract void Hide();
-        
-        protected virtual void OnShowEnd() { }
-        protected virtual void OnHideEnd() { }
     }
 }
