@@ -1,4 +1,5 @@
-﻿using Zenject;
+﻿using CardGame.Scripts;
+using Zenject;
 
 namespace CardGame.Artwork
 {
@@ -7,7 +8,8 @@ namespace CardGame.Artwork
         public override void InstallBindings()
         {
             PackageInstaller.Install(Container);
-
+            
+            CardInstaller.Install(Container);
 
             Container
                 .Bind<ApplicationLauncher>()

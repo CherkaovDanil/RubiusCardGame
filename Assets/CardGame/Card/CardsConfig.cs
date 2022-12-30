@@ -10,27 +10,28 @@ namespace CardGame.Card
         public int ID;        
         public string Name;
         public string Discription;
-        public Sprite FaceSprite;
-        public Sprite BackSprite;        
+        public Sprite FrontSprite;
+        public Sprite BackSprite;
+        public CardSide BaseCardSide;
     }
     
     [CreateAssetMenu(fileName = "CardsConfig", menuName = "Cards/CardsConfig", order = 0)]
-    public class CardConfig : ScriptableObject
+    public class CardsConfig : ScriptableObject
     {
         [SerializeField] private CardModel[] cardModels;
-        
+
         private Dictionary<int, CardModel> _dict;
         
-        private bool _dictionaryIsInited;
-        
+        [NonSerialized] private bool _isInited;
+
         public CardModel? Get(int id)
         {
-            if(!_dictionaryIsInited)
+            if(!_isInited)
             {
                 Init();
             }
             
-            if(_dict.ContainsKey(id))
+            if( _dict.ContainsKey(id))
             {
                 return _dict[id];
             }
@@ -41,12 +42,13 @@ namespace CardGame.Card
         
         private void Init()
         {
+            
             _dict = new Dictionary<int, CardModel>();
             foreach (var model in cardModels)
             {
                 _dict.Add(model.ID, model);
             }
-            _dictionaryIsInited = true;
+            _isInited = true;
         }
     }
 }
