@@ -40,8 +40,7 @@ namespace CardGame.UI
                 }
 
                 var component = window.GetComponent<T>();
-                
-                //always resize to screen size
+
                 var rect = component.transform as RectTransform;
                 if (rect != null)
                 {
