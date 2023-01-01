@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
+using CardGame.Card.Configs;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace CardGame.Card
+namespace CardGame.Card.Controllers
 {
     public class CardController
     {

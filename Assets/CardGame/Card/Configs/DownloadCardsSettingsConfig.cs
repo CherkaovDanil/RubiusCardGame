@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-namespace CardGame.Card
+namespace CardGame.Card.Configs
 {
     [CreateAssetMenu(fileName = "DownloadCardsSettings", menuName = "Cards/DownloadCardsSettings", order = 2)]
-    public class DownloadCardsSettings : ScriptableObject
+    public class DownloadCardsSettingsConfig : ScriptableObject
     {
         public string URl => url;
 

@@ -1,7 +1,8 @@
 ﻿using CardGame.UI;
+using CardGame.UI.Realisation;
 using Zenject;
 
-namespace CardGame.Artwork
+namespace CardGame.Scripts
 {
     public class PackageInstaller : Installer<PackageInstaller>
     {

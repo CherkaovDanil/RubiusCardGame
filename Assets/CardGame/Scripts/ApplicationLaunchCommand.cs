@@ -1,5 +1,7 @@
 ﻿using CardGame.Command;
+using CardGame.SceneObjects;
 using CardGame.UI;
+using CardGame.UI.Scripts;
 using Zenject;
 
 namespace CardGame.Scripts

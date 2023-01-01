@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace CardGame.Card
+namespace CardGame.Card.Configs
 {
     [CreateAssetMenu(fileName = "CardsAnimationConfig", menuName = "Cards/CardsAnimationConfig", order = 1)]
     public class CardAnimationConfig : ScriptableObject

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CardGame
+namespace CardGame.SceneObjects
 {
     public abstract class SceneObject : MonoBehaviour
     { }

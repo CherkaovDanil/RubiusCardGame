@@ -1,4 +1,6 @@
 ﻿using CardGame.Card;
+using CardGame.Card.Configs;
+using CardGame.Card.Controllers;
 using Zenject;
 
 namespace CardGame.Scripts
@@ -16,7 +18,7 @@ namespace CardGame.Scripts
                 .AsSingle();
             
             Container
-                .Bind<ImageDownloader>()
+                .Bind<ImageDownloaderController>()
                 .AsSingle();
             
             Container
@@ -24,7 +26,7 @@ namespace CardGame.Scripts
                 .AsSingle();
             
             Container
-                .Bind<DownloadCardsSettings>()
+                .Bind<DownloadCardsSettingsConfig>()
                 .FromScriptableObjectResource("DownloadCardsSettings")
                 .AsSingle();
             

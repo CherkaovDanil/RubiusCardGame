@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CardGame.Card
+namespace CardGame.Card.Configs
 {
     [Serializable]
     public struct CardModel
@@ -12,7 +12,6 @@ namespace CardGame.Card
         public string Discription;
         public Sprite FrontSprite;
         public Sprite BackSprite;
-        public CardSide BaseCardSide;
     }
     
     [CreateAssetMenu(fileName = "CardsConfig", menuName = "Cards/CardsConfig", order = 0)]

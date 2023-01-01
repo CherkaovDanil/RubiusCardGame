@@ -1,8 +1,9 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using CardGame.Card.Configs;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
-namespace CardGame.Card
+namespace CardGame.Card.Controllers
 {
     public class CardFlipController
     {

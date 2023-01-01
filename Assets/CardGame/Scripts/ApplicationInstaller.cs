@@ -1,7 +1,6 @@
-﻿using CardGame.Scripts;
-using Zenject;
+﻿using Zenject;
 
-namespace CardGame.Artwork
+namespace CardGame.Scripts
 {
     public class ApplicationInstaller : MonoInstaller
     {

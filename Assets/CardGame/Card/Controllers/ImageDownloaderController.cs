@@ -3,9 +3,9 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace CardGame.Card
+namespace CardGame.Card.Controllers
 {
-    public class ImageDownloader
+    public class ImageDownloaderController
     {
         public async UniTask<Texture2D> DownloadImageAsync(string uri, CancellationToken cancellationToken)
         {

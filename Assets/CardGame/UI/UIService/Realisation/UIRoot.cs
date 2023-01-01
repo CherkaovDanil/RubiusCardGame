@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CardGame.UI
+namespace CardGame.UI.Realisation
 {
     public class UIRoot : MonoBehaviour, IUIRoot
     {

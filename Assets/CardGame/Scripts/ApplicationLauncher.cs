@@ -1,8 +1,7 @@
-﻿using CardGame.Scripts;
-using CardGame.UI;
+﻿using CardGame.UI;
 using Zenject;
 
-namespace CardGame.Artwork
+namespace CardGame.Scripts
 {
     public class ApplicationLauncher
     {

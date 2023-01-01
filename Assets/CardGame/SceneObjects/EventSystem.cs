@@ -1,3 +1,4 @@
-using CardGame;
-
-public class EventSystem : SceneObject { }
+namespace CardGame.SceneObjects
+{
+    public class EventSystem : SceneObject { }
+}

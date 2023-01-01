@@ -1,9 +1,11 @@
-using CardGame;
 using UnityEngine;
 
-public class MainCamera : SceneObject
+namespace CardGame.SceneObjects
 {
-    public Camera Camera => camera;
+    public class MainCamera : SceneObject
+    {
+        public Camera Camera => camera;
 
-    [SerializeField] private Camera camera;
+        [SerializeField] private Camera camera;
+    }
 }

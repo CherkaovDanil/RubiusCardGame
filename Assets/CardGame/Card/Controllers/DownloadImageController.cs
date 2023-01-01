@@ -1,28 +1,29 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using CardGame.Card.Configs;
 using Cysharp.Threading.Tasks;
 
-namespace CardGame.Card
+namespace CardGame.Card.Controllers
 {
     public class DownloadImageController
     {
-        private readonly DownloadCardsSettings _downloadCardsSettings;
+        private readonly DownloadCardsSettingsConfig _downloadCardsSettingsConfig;
         private readonly CardFlipController _cardFlipController;
-        private readonly ImageDownloader _imageDownloader;
+        private readonly ImageDownloaderController _imageDownloaderController;
 
         private string URL;
         
         public DownloadImageController(
-            DownloadCardsSettings downloadCardsSettings,
+            DownloadCardsSettingsConfig downloadCardsSettingsConfig,
             CardFlipController cardFlipController,
-            ImageDownloader imageDownloader)
+            ImageDownloaderController imageDownloaderController)
         {
-            _downloadCardsSettings = downloadCardsSettings;
+            _downloadCardsSettingsConfig = downloadCardsSettingsConfig;
             _cardFlipController = cardFlipController;
-            _imageDownloader = imageDownloader;
+            _imageDownloaderController = imageDownloaderController;
 
-            URL = _downloadCardsSettings.URl;
+            URL = _downloadCardsSettingsConfig.URl;
         }
 
         public async UniTask DownloadImageAsync(List<CardView> cards,LoadType loadType,  CancellationToken cancellationToken)
@@ -48,7 +49,7 @@ namespace CardGame.Card
             await UniTask.WhenAll(cards.Select(
                 async card =>
                 {
-                    var downloadImageTask = _imageDownloader.DownloadImageAsync(URL, cancellationToken);
+                    var downloadImageTask = _imageDownloaderController.DownloadImageAsync(URL, cancellationToken);
 
                     await _cardFlipController.FlipCardAsync(card, CardSide.Back);
                     card.SetArt(await downloadImageTask);
@@ -61,7 +62,7 @@ namespace CardGame.Card
             await UniTask.WhenAll(cards.Select(
                 async card =>
                 {
-                    var downloadImageTask = _imageDownloader.DownloadImageAsync(URL, cancellationToken);
+                    var downloadImageTask = _imageDownloaderController.DownloadImageAsync(URL, cancellationToken);
 
                     await _cardFlipController.FlipCardAsync(card, CardSide.Back);
                     card.SetArt(await downloadImageTask);
@@ -78,7 +79,7 @@ namespace CardGame.Card
             var downloadAndFlipBack = cards.Select(
                 async card =>
                 {
-                    var downloadImageTask = _imageDownloader.DownloadImageAsync(URL, cancellationToken);
+                    var downloadImageTask = _imageDownloaderController.DownloadImageAsync(URL, cancellationToken);
 
                     await _cardFlipController.FlipCardAsync(card, CardSide.Back);
                     card.SetArt(await downloadImageTask);

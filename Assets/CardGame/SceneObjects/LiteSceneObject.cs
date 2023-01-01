@@ -1,3 +1,4 @@
-using CardGame;
-
-public class LiteSceneObject : SceneObject { }
+namespace CardGame.SceneObjects
+{
+    public class LiteSceneObject : SceneObject { }
+}
