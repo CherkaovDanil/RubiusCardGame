@@ -8,17 +8,20 @@ namespace CardGame.Card
         public readonly string Discription;
         public readonly Sprite FrontSprite;
         public readonly Sprite BackSprite;
-    
+        public readonly Transform Transform;
+
         public CardViewProtocol(
             string name,
             string discription,
             Sprite faceSprite,
-            Sprite backSprite)
+            Sprite backSprite,
+            Transform transform)
         {
             Name = name;
             Discription = discription;
             FrontSprite = faceSprite;
             BackSprite = backSprite;
+            Transform = transform;
         }
     }
 }

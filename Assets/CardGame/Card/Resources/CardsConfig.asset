@@ -19,3 +19,4 @@ MonoBehaviour:
     FrontSprite: {fileID: 21300000, guid: 5b6541a20638bf64d8c9717812c363bd, type: 3}
     BackSprite: {fileID: 21300000, guid: f761307a05a6c6f4e82b7c2468ed9c9e, type: 3}
     BaseCardSide: 1
+  countCard: 5

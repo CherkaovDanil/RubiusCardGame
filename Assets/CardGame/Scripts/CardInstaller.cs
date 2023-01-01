@@ -8,6 +8,22 @@ namespace CardGame.Scripts
         public override void InstallBindings()
         {
             Container
+                .Bind<CardController>()
+                .AsSingle();
+            
+            Container
+                .Bind<DownloadImageController>()
+                .AsSingle();
+            
+            Container
+                .Bind<ImageDownloader>()
+                .AsSingle();
+            
+            Container
+                .Bind<CardFlipController>()
+                .AsSingle();
+            
+            Container
                 .Bind<DownloadCardsSettings>()
                 .FromScriptableObjectResource("DownloadCardsSettings")
                 .AsSingle();
@@ -19,7 +35,7 @@ namespace CardGame.Scripts
             
             Container
                 .Bind<CardAnimationConfig>()
-                .FromScriptableObjectResource("CardAnimationConfig")
+                .FromScriptableObjectResource("CardsAnimationConfig")
                 .AsSingle();
 
             Container

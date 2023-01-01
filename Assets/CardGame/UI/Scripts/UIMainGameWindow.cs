@@ -1,6 +1,6 @@
 using CardGame.Card;
-using CardGame.Scripts;
 using CardGame.UI;
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,21 +14,56 @@ public class UIMainGameWindow : UIWindow
     
     [SerializeField] private Transform cardContainer;
 
-    private IInstantiator _instantiator; 
+    private CardController _cardController;
+
     [Inject]
-    private void Inject(IInstantiator instantiator)
+    private void Inject(CardController cardController)
     {
-        _instantiator = instantiator;
+       _cardController = cardController;
     }
     
     public override void Show()
     {
-        var command =  _instantiator.Instantiate<tempCommand>();
-        command.Execute();
+        dropdown.onValueChanged.AddListener(DropdownChange); 
+        loadButton.onClick.AddListener(LoadButtonClick);
+        cancelButton.onClick.AddListener(CancelButtonClick);
+        
+        _cardController.SpawnAllCards(cardContainer);
     }
 
     public override void Hide()
     {
-       
+        dropdown.onValueChanged.RemoveListener(DropdownChange); 
+        loadButton.onClick.RemoveListener(LoadButtonClick);
+        cancelButton.onClick.RemoveListener(CancelButtonClick);
+    }
+
+    private void LoadButtonClick()
+    {
+        LoadImage();
+    }
+
+    private async UniTask LoadImage()
+    {
+        SetInteractable(false);
+        await _cardController.StartDownload();
+        SetInteractable(true);
+    }
+    
+    private void CancelButtonClick()
+    {
+        _cardController.CancelDownload();
+    }
+
+    private void DropdownChange(int value)
+    {
+        _cardController.ChangeDownloadType(value);
+    }
+
+    private void SetInteractable(bool value)
+    {
+        dropdown.interactable = value;
+        loadButton.interactable = value;
+        cancelButton.interactable = !value;
     }
 }

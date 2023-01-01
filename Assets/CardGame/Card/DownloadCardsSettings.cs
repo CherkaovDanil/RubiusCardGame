@@ -6,9 +6,7 @@ namespace CardGame.Card
     public class DownloadCardsSettings : ScriptableObject
     {
         public string URl => url;
-        public int CountCard => countCard;
 
         [SerializeField] private string url;
-        [SerializeField] private int countCard;
     }
 }

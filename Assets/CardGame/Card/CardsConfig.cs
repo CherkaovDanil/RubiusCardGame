@@ -18,7 +18,10 @@ namespace CardGame.Card
     [CreateAssetMenu(fileName = "CardsConfig", menuName = "Cards/CardsConfig", order = 0)]
     public class CardsConfig : ScriptableObject
     {
+        public int CountCard => countCard;
+        
         [SerializeField] private CardModel[] cardModels;
+        [SerializeField] private int countCard;
 
         private Dictionary<int, CardModel> _dict;
         
